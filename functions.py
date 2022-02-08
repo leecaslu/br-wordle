@@ -2,7 +2,7 @@ from random import (
     choice
 )
 from colorama import Fore as Fr
-
+# Utilizei colorama para colorir as letras da saída do gabarito()
 
 def escolha():
     """
@@ -20,6 +20,10 @@ def escolha():
 
 
 def tentativa():
+    """
+    Função para receber a palavra chute do jogador e conferir se a palavra é válida
+    :return: string de 5 letras correspondente ao chute do jogador.
+    """
     alfabeto = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
                 'v', 'w', 'x', 'y', 'z')
     while True:
@@ -39,6 +43,17 @@ def tentativa():
 
 
 def gabarito(p_do_dia, resposta):
+    """
+    Função que recebe a palavra do dia (resposta certa), o chute do jogador e confere
+    as letras certas, erradas e existentes entre a palavra do dia e o chute.
+    Verde -> Letra na posição correta
+    Vermelho -> Letra não existe na palavra do dia
+    Amarelo -> Letra existe na palavra do dia mas está na posição errada
+    :param p_do_dia: string de 5 letras correspondente à resposta certa
+    :param resposta: string de 5 letras correspondente ao chute do jogador
+    :return: retorna uma string de 5 letras coloridas iguais ao chute do jogador
+    com a comparação à palavra do dia.
+    """
     saida = [' ', ' ', ' ', ' ', ' ']
     p_do_dia1 = list(p_do_dia)
     resposta1 = list(resposta)
@@ -57,6 +72,7 @@ def gabarito(p_do_dia, resposta):
     return ''.join(saida) + Fr.RESET
 
 def teste():
+    # função teste
     print(gabarito('torso', 'barco'))
     print(gabarito('torso', 'porre'))
     print(gabarito('torso', 'tiros'))
