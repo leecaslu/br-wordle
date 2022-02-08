@@ -1,6 +1,6 @@
 import functions as f
+# Checar arquivo functions.py para ver as funções chamadas
 
-# APRENDER SOBRE KIVY
 palavra = f.escolha()
 jogadas = 0
 while jogadas < 5:
